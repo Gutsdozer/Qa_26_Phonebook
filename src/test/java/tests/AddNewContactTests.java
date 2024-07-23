@@ -83,6 +83,7 @@ public class AddNewContactTests extends TestBase {
         app.getHelperContact().openContactForm();
         app.getHelperContact().fillContactForm(contact);
         app.getHelperContact().saveContact();
+       app.getHelperContact().getScreen("src/test/screenshots/screen.png");
         Assert.assertTrue(app.getHelperContact().isAddPageStillDisplayed());
     }
     @Test
