@@ -31,7 +31,7 @@ public class LoginTests extends TestBase{
         logger.info("Start test with name 'loginSuccess'");
         logger.info("Test data ---> email: " +email + "& password: " + password);
         app.getHelperUser().openLoginRegistrationForm();
-        app.getHelperUser().fillLoginRegistrationForm("mara@gmail.com", "Mmar123456$");
+        app.getHelperUser().fillLoginRegistrationForm(email, password);
         app.getHelperUser().submitLogin();
 
 //        Assert.assertEquals();
@@ -49,7 +49,7 @@ public class LoginTests extends TestBase{
         logger.info("Start test with name 'loginSuccess'");
         logger.info("Test data ---> email: " +user.toString());
         app.getHelperUser().openLoginRegistrationForm();
-        app.getHelperUser().fillLoginRegistrationForm("mara@gmail.com", "Mmar123456$");
+        app.getHelperUser().fillLoginRegistrationForm(user);
         app.getHelperUser().submitLogin();
         Assert.assertTrue(app.getHelperUser().isLogged());
         logger.info("Assert check is element button 'Sign out' present");

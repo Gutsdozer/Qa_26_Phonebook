@@ -40,4 +40,20 @@ public class DataProviderContact {
         return list.iterator();
     }
 
+    @DataProvider
+    public Iterator<Object[]> contactWrongPhone(){
+        List<Object[]> list = new ArrayList<>();
+        list.add(new Object[]{Contact.builder()
+                .name("Tony")
+                .lastName("Pupov")
+                .phone("666557")
+                .email("pupov@gmail.com")
+                .address("TA")
+                .description("Bobs")
+                .build()});
+
+
+        return list.iterator();
+    }
+
 }

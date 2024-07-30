@@ -18,17 +18,8 @@ public class AddNewContactTests extends TestBase {
     }
 
     @Test(dataProvider = "contactSuccess", dataProviderClass = DataProviderContact.class)
-    public void addContactSuccessAllFields(){
+    public void addContactSuccessAllFields(Contact contact){
 
-        int i = (int) ((System.currentTimeMillis()/1000)%3600);
-        Contact contact = Contact.builder()
-        .name("Tony")
-                .lastName("Pupov")
-                .phone("666555")
-                .email("pupov" + i + "@gmail.com")
-                .address("TA")
-                .description("Bobs")
-                .build();
         logger.info("Tests run with data: --->" + contact.toString());
         app.getHelperContact().openContactForm();
         app.getHelperContact().fillContactForm(contact);
