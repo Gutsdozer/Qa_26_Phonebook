@@ -20,10 +20,14 @@ public class RegistrationTests extends TestBase {
         int i = (int) (System.currentTimeMillis() / 1000) % 3600;
 
         User user = new User().setEmail("don" + i + "@gmail.com").setPassword("Ddon123456$");
+        logger.info("Tests run with data: --->"+user.toString());
 
         app.getHelperUser().openLoginRegistrationForm();
+        logger.info("openRegistrationForm invoked");
         app.getHelperUser().fillLoginRegistrationForm(user);
+        logger.info("fillRegistrationForm invoked");
         app.getHelperUser().submitRegistration();
+        logger.info("submitLogin invoked");
         Assert.assertTrue(app.getHelperUser().isLogged());
         Assert.assertTrue(app.getHelperUser().isNoContactsHereDisplayed());
 

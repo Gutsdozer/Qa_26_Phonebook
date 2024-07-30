@@ -21,6 +21,7 @@ public class ApplicationManager {
     //wd = new ChromeDriver();
         wd = new EventFiringWebDriver(new ChromeDriver());
     wd.navigate().to("https://telranedu.web.app/");
+    logger.info("The link--->"+wd.getCurrentUrl());
     wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     helperUser = new HelperUser(wd);
     helperContact = new HelperContact(wd);
