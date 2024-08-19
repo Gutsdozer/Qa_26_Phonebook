@@ -3,6 +3,7 @@ package manager;
 import models.User;
 import org.testng.annotations.DataProvider;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -35,6 +36,19 @@ public class DataProviderUser {
         List<Object[]> list = new ArrayList<>();
         list.add(new Object[]{new User().setEmail("mara@gmail.com").setPassword("Mmar123456$")});
         list.add(new Object[]{new User().setEmail("sonya@gmail.com").setPassword("Ss12345$")});
+        return list.iterator();
+    }
+
+    @DataProvider
+    public Iterator<Object[]> loginFile() throws IOException {
+        List<Object[]> list = new ArrayList<>();
+        //read from file --> add to List
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/data.csv")));
+        String line = reader.readLine();
+        while (line!=null){
+           String[] all = line.split(","); //splitted email-login string from data.csv
+           list.add(new Object[]{new User().setEmail(all[0]).setPassword(all[1])});
+        }
         return list.iterator();
     }
 

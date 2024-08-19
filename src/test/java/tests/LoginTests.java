@@ -56,6 +56,18 @@ public class LoginTests extends TestBase{
 
     }
 
+    @Test(dataProvider = "loginFile", dataProviderClass = DataProviderUser.class)
+    public void loginSuccessDP(User user){
+        logger.info("Start test with name 'loginSuccess'");
+        logger.info("Test data ---> email: " +user.toString());
+        app.getHelperUser().openLoginRegistrationForm();
+        app.getHelperUser().fillLoginRegistrationForm(user);
+        app.getHelperUser().submitLogin();
+        Assert.assertTrue(app.getHelperUser().isLogged());
+        logger.info("Assert check is element button 'Sign out' present");
+
+    }
+
 
 
     @Test
