@@ -39,7 +39,7 @@ public class AddNewContactTests extends TestBase {
         Assert.assertTrue(app.getHelperContact().isContactAddedByPhone(contact.getPhone()));
     }
 
-    @Test
+    @Test(groups = {"smoke","regress","retest"})
     public void addNewContactSuccessReqFields(){
         int i = (int) ((System.currentTimeMillis()/1000)%3600);
         Contact contact = Contact.builder()
@@ -123,7 +123,7 @@ public class AddNewContactTests extends TestBase {
         Assert.assertTrue(app.getHelperContact().isAddPageStillDisplayed());
     }
 
-    @Test
+    @Test(groups = "smoke")
     public void addNewContactWrongEmail(){
         Contact contact = Contact.builder()
                 .name("Tony")
